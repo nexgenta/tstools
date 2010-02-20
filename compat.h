@@ -113,6 +113,9 @@ typedef uint8_t  byte;
 //     do both, here, for safety.
 #include <sys/types.h>
 #include <unistd.h>
+
+#define offset_t compat_offset_t__
+
 typedef off_t offset_t;
 
 #if defined(__linux__) && !defined(__USE_FILE_OFFSET64)
