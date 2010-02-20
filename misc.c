@@ -1269,10 +1269,10 @@ extern int connect_socket(char *hostname,
   }
   memcpy(&ipaddr.sin_addr.s_addr, hp->h_addr, hp->h_length);
   ipaddr.sin_family = hp->h_addrtype;
-#if !defined(__linux__)
+#if defined(HAVE_SOCKADDR_IN_SIN_LEN)
   // On BSD, the length is defined in the datastructure
   ipaddr.sin_len = sizeof(struct sockaddr_in);
-#endif // __linux__
+#endif /*defined(HAVE_SOCKADDR_IN_SIN_LEN)*/
   ipaddr.sin_port = htons(port);
 #endif // _WIN32
 

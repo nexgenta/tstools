@@ -3036,10 +3036,10 @@ static int run_server(tsserve_context_p  context,
 
   // Bind it to port `listen_port` on this machine
   memset(&ipaddr,0,sizeof(ipaddr));
-#if !defined(__linux__) && !defined(_WIN32)
+#if defined(SOCKADDR_IN_SIN_LEN)
   // On BSD, the length is defined in the datastructure
   ipaddr.sin_len = sizeof(struct sockaddr_in);
-#endif
+#endif /*defined(SOCKADDR_IN_SIN_LEN)*/
   ipaddr.sin_family = AF_INET;
   ipaddr.sin_port = htons(listen_port);
   ipaddr.sin_addr.s_addr = INADDR_ANY;  // any interface
