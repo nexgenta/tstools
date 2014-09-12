@@ -45,7 +45,7 @@ tsinfo_LDADD = libtstools.la
 tsreport_SOURCES = tsreport.c
 tsreport_LDADD = libtstools.la
 
-tsplay_SOURCES = tsplay.c
+tsplay_SOURCES = tsplay.c tsplay_innards.c
 tsplay_LDADD = libtstools.la
 
 tsserve_SOURCES = tsserve.c
